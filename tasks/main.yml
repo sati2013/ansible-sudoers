@@ -34,7 +34,7 @@
 - name: Ensure all authorized separate sudoer specs are properly configured
   template:
     src: sudoer_spec.j2
-    dest: "/etc/{{ sudoer_d_path }}/{{ item.name }}"
+    dest: "{{ sudoer_d_path }}/{{ item.name }}"
     owner: root
     group: root
     mode: 0440
@@ -75,7 +75,7 @@
 - name: Ensure the sudoers file is valid and up to date (specs all in one)
   template:
     src: sudoers_plus_spec.j2
-    dest: /etc/sudoers
+    dest: "{{ sudoer_file }}"
     owner: root
     group: root
     mode: 0440
